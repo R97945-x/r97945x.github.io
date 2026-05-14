@@ -1,4 +1,4 @@
-baseURL = ''
+baseURL = "https://liangqianghuan.github.io/"
 locale = 'zh-CN'
 title = '个人博客'
 theme = 'ink-theme'
