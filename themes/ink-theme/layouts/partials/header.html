@@ -1,0 +1,25 @@
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        </div>
+        <ul class="nav-links">
+            {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+        <button class="search-btn" id="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+</header>

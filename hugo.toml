@@ -1,0 +1,43 @@
+baseURL = ''
+locale = 'zh-CN'
+title = '个人博客'
+theme = 'ink-theme'
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+ignoreLogs = ['warning-goldmark-raw-html']
+
+[params]
+  author = '梁强欢'
+  studentId = '2306010143'
+  className = '计应2301班'
+  email = '3247160953@qq.com'
+  description = '个人技术博客'
+
+[menu]
+  [[menu.main]]
+    name = '首页'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = '个人介绍'
+    url = '/about/'
+    weight = 2
+  [[menu.main]]
+    name = '我的作品'
+    url = '/works/'
+    weight = 3
+  [[menu.main]]
+    name = '心情记录'
+    url = '/mood/'
+    weight = 4
+  [[menu.main]]
+    name = '留言板'
+    url = '/guestbook/'
+    weight = 5
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML', 'RSS']

@@ -1,0 +1,9 @@
+<div class="mood-entry">
+    <div class="mood-header">
+        <span class="mood-emoji">{{ .Get "emoji" }}</span>
+        <span class="mood-date">{{ .Get "date" }}</span>
+    </div>
+    <div class="mood-content">
+        {{ .Inner }}
+    </div>
+</div>

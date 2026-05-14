@@ -1,0 +1,58 @@
+{{ define "main" }}
+    <div class="hero">
+        <div class="hero-content">
+            <h1>{{ .Site.Title }}</h1>
+            <p>{{ .Site.Params.description }}</p>
+        </div>
+    </div>
+    
+    <div class="home-layout">
+        <div class="main-content">
+            <h2 class="section-title">最新文章</h2>
+            <div class="post-list">
+                {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
+                    <article class="post-card">
+                        {{ if .Params.image }}
+                            <div class="post-image">
+                                <img class="lazy" data-src="{{ .Params.image }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Crect fill='%23f0f0f0' width='200' height='150'/%3E%3Ctext fill='%23ccc' font-family='sans-serif' font-size='14' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E加载中...%3C/text%3E%3C/svg%3E" alt="{{ .Title }}">
+                            </div>
+                        {{ end }}
+                        <div class="post-content">
+                            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                            <div class="post-meta">
+                                <span>{{ .Date.Format "2006-01-02" }}</span>
+                            </div>
+                            <p>{{ .Summary }}</p>
+                            <a href="{{ .RelPermalink }}" class="read-more">阅读更多...</a>
+                        </div>
+                    </article>
+                {{ end }}
+            </div>
+        </div>
+        
+        <aside class="sidebar">
+            <div class="profile-card">
+                <h3>个人信息</h3>
+                <div class="avatar">
+                    <img src="/images/avatar.png" alt="头像" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=&quot;fas fa-user-circle&quot;></i>';">
+                </div>
+                <ul class="profile-info">
+                    <li><strong>姓名：</strong>{{ .Site.Params.author }}</li>
+                    <li><strong>学号：</strong>{{ .Site.Params.studentId }}</li>
+                    <li><strong>班级：</strong>{{ .Site.Params.className }}</li>
+                    <li><strong>邮箱：</strong><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></li>
+                </ul>
+            </div>
+            
+            <div class="favorites-card">
+                <h3>收藏图片</h3>
+                <div class="favorites-grid">
+                    <img class="lazy" data-src="https://picsum.photos/150/100?random=1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 100'%3E%3Crect fill='%23f0f0f0' width='150' height='100'/%3E%3C/svg%3E" alt="收藏图片1">
+                    <img class="lazy" data-src="https://picsum.photos/150/100?random=2" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 100'%3E%3Crect fill='%23f0f0f0' width='150' height='100'/%3E%3C/svg%3E" alt="收藏图片2">
+                    <img class="lazy" data-src="https://picsum.photos/150/100?random=3" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 100'%3E%3Crect fill='%23f0f0f0' width='150' height='100'/%3E%3C/svg%3E" alt="收藏图片3">
+                    <img class="lazy" data-src="https://picsum.photos/150/100?random=4" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 100'%3E%3Crect fill='%23f0f0f0' width='150' height='100'/%3E%3C/svg%3E" alt="收藏图片4">
+                </div>
+            </div>
+        </aside>
+    </div>
+{{ end }}
