@@ -11,7 +11,7 @@ jobs:
       contents: read
       pages: write
       id-token: write
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
