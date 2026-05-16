@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot 学习笔记：从入门到实战 - 个人博客</title>
+    <meta name="description" content="个人技术博客">
+    <link rel="stylesheet" href="/css/style.css?v=2.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="http://localhost:1313/">个人博客</a>
+        </div>
+        <ul class="nav-links">
+            
+                <li><a href="/" class="">首页</a></li>
+            
+                <li><a href="/about/" class="">个人介绍</a></li>
+            
+                <li><a href="/works/" class="">我的作品</a></li>
+            
+                <li><a href="/mood/" class="">心情记录</a></li>
+            
+                <li><a href="/guestbook/" class="">留言板</a></li>
+            
+        </ul>
+        <button class="search-btn" id="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            
+                <li><a href="/">首页</a></li>
+            
+                <li><a href="/about/">个人介绍</a></li>
+            
+                <li><a href="/works/">我的作品</a></li>
+            
+                <li><a href="/mood/">心情记录</a></li>
+            
+                <li><a href="/guestbook/">留言板</a></li>
+            
+        </ul>
+    </div>
+</header>
+        <main>
+            
+    <article class="single-post">
+        <h1>Spring Boot 学习笔记：从入门到实战</h1>
+        <div class="post-meta">
+            <span>2026-05-09</span>
+        </div>
+        
+            <div class="featured-image">
+                <img src="https://picsum.photos/800/600?random=4" alt="Spring Boot 学习笔记：从入门到实战">
+            </div>
+        
+        <div class="post-body">
+            <h2 id="前言">前言</h2>
+<p>Spring Boot 是目前最流行的 Java Web 开发框架之一，它简化了 Spring 应用的创建和部署过程。在学习过程中，我整理了一些关键知识点，希望能帮助其他初学者。</p>
+<h2 id="spring-boot-核心特性">Spring Boot 核心特性</h2>
+<h3 id="1-自动配置">1. 自动配置</h3>
+<p>Spring Boot 的自动配置是其最强大的特性之一：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Application</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        SpringApplication.<span style="color:#a6e22e">run</span>(Application.<span style="color:#a6e22e">class</span>, args);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>@SpringBootApplication</code> 注解包含了以下三个核心注解：</p>
+<ul>
+<li><code>@Configuration</code>：标记为配置类</li>
+<li><code>@EnableAutoConfiguration</code>：启用自动配置</li>
+<li><code>@ComponentScan</code>：扫描组件</li>
+</ul>
+<h3 id="2-starter-依赖">2. Starter 依赖</h3>
+<p>Starter 依赖简化了 Maven/Gradle 配置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Web 开发 --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 数据库访问 --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h2 id="restful-api-开发">RESTful API 开发</h2>
+<h3 id="创建-controller">创建 Controller</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/api/users&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserController</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> UserService userService;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>UserDTO<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getAllUsers</span>() {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>UserDTO<span style="color:#f92672">&gt;</span> users <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">getAllUsers</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(users);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>UserDTO<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getUserById</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        UserDTO user <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">getUserById</span>(id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(user);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PostMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>UserDTO<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">createUser</span>(<span style="color:#a6e22e">@RequestBody</span> UserCreateDTO dto) {
+</span></span><span style="display:flex;"><span>        UserDTO user <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">createUser</span>(dto);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">CREATED</span>).<span style="color:#a6e22e">body</span>(user);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PutMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>UserDTO<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">updateUser</span>(<span style="color:#a6e22e">@PathVariable</span> Long id, <span style="color:#a6e22e">@RequestBody</span> UserUpdateDTO dto) {
+</span></span><span style="display:flex;"><span>        UserDTO user <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">updateUser</span>(id, dto);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(user);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@DeleteMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Void<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">deleteUser</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>        userService.<span style="color:#a6e22e">deleteUser</span>(id);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">noContent</span>().<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="统一响应格式">统一响应格式</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ApiResponse</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> code;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String message;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> T data;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> ApiResponse<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">success</span>(T data) {
+</span></span><span style="display:flex;"><span>        ApiResponse<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ApiResponse<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        response.<span style="color:#a6e22e">setCode</span>(200);
+</span></span><span style="display:flex;"><span>        response.<span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#34;success&#34;</span>);
+</span></span><span style="display:flex;"><span>        response.<span style="color:#a6e22e">setData</span>(data);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> response;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> ApiResponse<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">error</span>(<span style="color:#66d9ef">int</span> code, String message) {
+</span></span><span style="display:flex;"><span>        ApiResponse<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ApiResponse<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        response.<span style="color:#a6e22e">setCode</span>(code);
+</span></span><span style="display:flex;"><span>        response.<span style="color:#a6e22e">setMessage</span>(message);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> response;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// getter and setter</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="数据库操作">数据库操作</h2>
+<h3 id="jpa-实体定义">JPA 实体定义</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;users&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(unique <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>, nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 50)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String username;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 100)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String password;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(unique <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>, nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, length <span style="color:#f92672">=</span> 100)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;created_at&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime createdAt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;updated_at&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LocalDateTime updatedAt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PrePersist</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span>() {
+</span></span><span style="display:flex;"><span>        createdAt <span style="color:#f92672">=</span> LocalDateTime.<span style="color:#a6e22e">now</span>();
+</span></span><span style="display:flex;"><span>        updatedAt <span style="color:#f92672">=</span> LocalDateTime.<span style="color:#a6e22e">now</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@PreUpdate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onUpdate</span>() {
+</span></span><span style="display:flex;"><span>        updatedAt <span style="color:#f92672">=</span> LocalDateTime.<span style="color:#a6e22e">now</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// getter and setter</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="repository-接口">Repository 接口</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>User, Long<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByUsername</span>(String username);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByEmail</span>(String email);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">existsByUsername</span>(String username);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">existsByEmail</span>(String email);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="异常处理">异常处理</h2>
+<h3 id="全局异常处理器">全局异常处理器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestControllerAdvice</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GlobalExceptionHandler</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ExceptionHandler</span>(ResourceNotFoundException.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ApiResponse<span style="color:#f92672">&lt;</span>Void<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">handleResourceNotFound</span>(ResourceNotFoundException ex) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">NOT_FOUND</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">body</span>(ApiResponse.<span style="color:#a6e22e">error</span>(404, ex.<span style="color:#a6e22e">getMessage</span>()));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ExceptionHandler</span>(BusinessException.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ApiResponse<span style="color:#f92672">&lt;</span>Void<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">handleBusinessException</span>(BusinessException ex) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">BAD_REQUEST</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">body</span>(ApiResponse.<span style="color:#a6e22e">error</span>(400, ex.<span style="color:#a6e22e">getMessage</span>()));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ExceptionHandler</span>(Exception.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ApiResponse<span style="color:#f92672">&lt;</span>Void<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">handleException</span>(Exception ex) {
+</span></span><span style="display:flex;"><span>        log.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Unexpected error&#34;</span>, ex);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">INTERNAL_SERVER_ERROR</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">body</span>(ApiResponse.<span style="color:#a6e22e">error</span>(500, <span style="color:#e6db74">&#34;服务器内部错误&#34;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="配置管理">配置管理</h2>
+<h3 id="applicationyml-配置示例">application.yml 配置示例</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">server</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datasource</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">jdbc:mysql://localhost:3306/example_db?useSSL=false&amp;serverTimezone=Asia/Shanghai</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">username</span>: <span style="color:#ae81ff">admin</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">password</span>: <span style="color:#ae81ff">password</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver-class-name</span>: <span style="color:#ae81ff">com.mysql.cj.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jpa</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hibernate</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ddl-auto</span>: <span style="color:#ae81ff">update</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">show-sql</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">hibernate</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">format_sql</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dialect</span>: <span style="color:#ae81ff">org.hibernate.dialect.MySQL8Dialect</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">logging</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">level</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">com.example.app</span>: <span style="color:#ae81ff">DEBUG</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">org.hibernate.SQL</span>: <span style="color:#ae81ff">DEBUG</span>
+</span></span></code></pre></div><h2 id="总结">总结</h2>
+<p>Spring Boot 大大简化了 Java Web 开发，通过自动配置和 Starter 依赖，我们可以快速搭建一个生产级的应用。关键是理解其核心原理，灵活运用各种注解和配置。</p>
+<blockquote>
+<p>路漫漫其修远兮，吾将上下而求索。</p>
+</blockquote>
+<hr>
+<p><em>本文首发于我的博客，转载请注明出处。</em></p>
+        </div>
+    </article>
+
+        </main>
+        <footer class="footer">
+    <div class="footer-card">
+        <div class="footer-links">
+            <a href="/">首页</a>
+            <span class="divider">|</span>
+            <a href="/about/">个人介绍</a>
+            <span class="divider">|</span>
+            <a href="/works/">我的作品</a>
+            <span class="divider">|</span>
+            <a href="/mood/">心情记录</a>
+            <span class="divider">|</span>
+            <a href="/guestbook/">留言板</a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2026 梁强欢. All rights reserved.</p>
+            <p>基于 Hugo 构建 | 托管于 GitHub Pages</p>
+        </div>
+    </div>
+</footer>
+    </div>
+    <div class="search-modal" id="search-modal">
+    <div class="search-modal-content">
+        <button class="close-btn" id="close-search">
+            <i class="fas fa-times"></i>
+        </button>
+        <input type="text" id="search-input" placeholder="搜索文章...">
+        <div class="search-results" id="search-results"></div>
+    </div>
+</div>
+    <script src="/js/search.js?v=1.4"></script>
+</body>
+</html>

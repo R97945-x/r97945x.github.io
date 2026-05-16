@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 实战指南：Composition API 深度解析 - 个人博客</title>
+    <meta name="description" content="个人技术博客">
+    <link rel="stylesheet" href="/css/style.css?v=2.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="http://localhost:1313/">个人博客</a>
+        </div>
+        <ul class="nav-links">
+            
+                <li><a href="/" class="">首页</a></li>
+            
+                <li><a href="/about/" class="">个人介绍</a></li>
+            
+                <li><a href="/works/" class="">我的作品</a></li>
+            
+                <li><a href="/mood/" class="">心情记录</a></li>
+            
+                <li><a href="/guestbook/" class="">留言板</a></li>
+            
+        </ul>
+        <button class="search-btn" id="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            
+                <li><a href="/">首页</a></li>
+            
+                <li><a href="/about/">个人介绍</a></li>
+            
+                <li><a href="/works/">我的作品</a></li>
+            
+                <li><a href="/mood/">心情记录</a></li>
+            
+                <li><a href="/guestbook/">留言板</a></li>
+            
+        </ul>
+    </div>
+</header>
+        <main>
+            
+    <article class="single-post">
+        <h1>Vue 3 实战指南：Composition API 深度解析</h1>
+        <div class="post-meta">
+            <span>2026-05-08</span>
+        </div>
+        
+            <div class="featured-image">
+                <img src="https://picsum.photos/800/600?random=5" alt="Vue 3 实战指南：Composition API 深度解析">
+            </div>
+        
+        <div class="post-body">
+            <h2 id="引言">引言</h2>
+<p>Vue 3 引入了全新的 Composition API，相比 Options API，它提供了更好的代码组织和逻辑复用能力。在这篇文章中，我将分享我在项目中使用 Composition API 的经验和心得。</p>
+<h2 id="composition-api-vs-options-api">Composition API vs Options API</h2>
+<h3 id="options-api-的问题">Options API 的问题</h3>
+<p>传统的 Options API 存在一些痛点：</p>
+<ol>
+<li><strong>代码分散</strong>：相关逻辑分散在不同的选项中</li>
+<li><strong>复用困难</strong>：难以提取可复用的逻辑</li>
+<li><strong>类型推断</strong>：TypeScript 支持不够好</li>
+</ol>
+<h3 id="composition-api-的优势">Composition API 的优势</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">computed</span>, <span style="color:#a6e22e">onMounted</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 响应式数据
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;梁强欢&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 计算属性
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">doubleCount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#a6e22e">count</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 方法
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">count</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 生命周期钩子
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">onMounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;组件挂载完成&#39;</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h2 id="核心响应式-api">核心响应式 API</h2>
+<h3 id="ref-和-reactive">ref 和 reactive</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">reactive</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ref 用于基本类型
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">count</span>.<span style="color:#a6e22e">value</span>) <span style="color:#75715e">// 0
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// reactive 用于对象
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">reactive</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;张三&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">name</span>) <span style="color:#75715e">// &#39;张三&#39;
+</span></span></span></code></pre></div><h3 id="computed-计算属性">computed 计算属性</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">computed</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;张&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;三&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">firstName</span>.<span style="color:#a6e22e">value</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">lastName</span>.<span style="color:#a6e22e">value</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 可写的计算属性
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fullName2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">get</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">firstName</span>.<span style="color:#a6e22e">value</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">lastName</span>.<span style="color:#a6e22e">value</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">set</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">newValue</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">first</span>, <span style="color:#a6e22e">last</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">newValue</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">firstName</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">first</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lastName</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">last</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h3 id="watch-和-watcheffect">watch 和 watchEffect</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">watch</span>, <span style="color:#a6e22e">watchEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// watch 监听特定数据源
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">watch</span>(<span style="color:#a6e22e">count</span>, (<span style="color:#a6e22e">newVal</span>, <span style="color:#a6e22e">oldVal</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`count 从 </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">oldVal</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> 变为 </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">newVal</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 监听多个数据源
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">watch</span>([<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">name</span>], ([<span style="color:#a6e22e">newCount</span>, <span style="color:#a6e22e">newName</span>], [<span style="color:#a6e22e">oldCount</span>, <span style="color:#a6e22e">oldName</span>]) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;count 或 name 变化了&#39;</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// watchEffect 自动追踪依赖
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">watchEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`当前 count 值: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">count</span>.<span style="color:#a6e22e">value</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="组合式函数-composables">组合式函数 (Composables)</h2>
+<h3 id="创建可复用的组合式函数">创建可复用的组合式函数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// useMousePosition.js
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">onMounted</span>, <span style="color:#a6e22e">onUnmounted</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">useMousePosition</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updatePosition</span>(<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">pageX</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">y</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">pageY</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onMounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;mousemove&#39;</span>, <span style="color:#a6e22e">updatePosition</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onUnmounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    window.<span style="color:#a6e22e">removeEventListener</span>(<span style="color:#e6db74">&#39;mousemove&#39;</span>, <span style="color:#a6e22e">updatePosition</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="使用组合式函数">使用组合式函数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useMousePosition</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./useMousePosition&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMousePosition</span>()
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">鼠标位置</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">x</span> }}, {{ <span style="color:#a6e22e">y</span> }}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><h2 id="实战案例用户登录状态管理">实战案例：用户登录状态管理</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// useAuth.js
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">computed</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isLoggedIn</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">useAuth</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">login</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">userData</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userData</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isLoggedIn</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">userData</span>))
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">logout</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isLoggedIn</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">removeItem</span>(<span style="color:#e6db74">&#39;user&#39;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initAuth</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">savedUser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;user&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">savedUser</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">savedUser</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">isLoggedIn</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isLoggedIn</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">user</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">login</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">logout</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">initAuth</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="性能优化技巧">性能优化技巧</h2>
+<h3 id="shallowref-和-triggerref">shallowRef 和 triggerRef</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">shallowRef</span>, <span style="color:#a6e22e">triggerRef</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// shallowRef 只监听引用变化
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">shallowRef</span>({ <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 修改内部属性不会触发更新
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 需要手动触发更新
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">triggerRef</span>(<span style="color:#a6e22e">state</span>)
+</span></span></code></pre></div><h3 id="markraw">markRaw</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">markRaw</span>, <span style="color:#a6e22e">ref</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 标记不需要响应式处理的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">logo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">markRaw</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Image</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">image</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">logo</span>)
+</span></span></code></pre></div><h2 id="总结">总结</h2>
+<p>Composition API 为 Vue 3 带来了更灵活的代码组织方式，通过组合式函数可以实现逻辑的高度复用。掌握这些核心 API，可以让我们写出更清晰、更易于维护的代码。</p>
+<blockquote>
+<p>学习是一个持续的过程，保持好奇心，不断探索！</p>
+</blockquote>
+<hr>
+<p><em>本文首发于我的博客，转载请注明出处。</em></p>
+        </div>
+    </article>
+
+        </main>
+        <footer class="footer">
+    <div class="footer-card">
+        <div class="footer-links">
+            <a href="/">首页</a>
+            <span class="divider">|</span>
+            <a href="/about/">个人介绍</a>
+            <span class="divider">|</span>
+            <a href="/works/">我的作品</a>
+            <span class="divider">|</span>
+            <a href="/mood/">心情记录</a>
+            <span class="divider">|</span>
+            <a href="/guestbook/">留言板</a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2026 梁强欢. All rights reserved.</p>
+            <p>基于 Hugo 构建 | 托管于 GitHub Pages</p>
+        </div>
+    </div>
+</footer>
+    </div>
+    <div class="search-modal" id="search-modal">
+    <div class="search-modal-content">
+        <button class="close-btn" id="close-search">
+            <i class="fas fa-times"></i>
+        </button>
+        <input type="text" id="search-input" placeholder="搜索文章...">
+        <div class="search-results" id="search-results"></div>
+    </div>
+</div>
+    <script src="/js/search.js?v=1.4"></script>
+</body>
+</html>

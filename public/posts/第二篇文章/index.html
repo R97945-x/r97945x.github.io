@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo 入门指南 - 个人博客</title>
+    <meta name="description" content="个人技术博客">
+    <link rel="stylesheet" href="/css/style.css?v=2.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="http://localhost:1313/">个人博客</a>
+        </div>
+        <ul class="nav-links">
+            
+                <li><a href="/" class="">首页</a></li>
+            
+                <li><a href="/about/" class="">个人介绍</a></li>
+            
+                <li><a href="/works/" class="">我的作品</a></li>
+            
+                <li><a href="/mood/" class="">心情记录</a></li>
+            
+                <li><a href="/guestbook/" class="">留言板</a></li>
+            
+        </ul>
+        <button class="search-btn" id="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            
+                <li><a href="/">首页</a></li>
+            
+                <li><a href="/about/">个人介绍</a></li>
+            
+                <li><a href="/works/">我的作品</a></li>
+            
+                <li><a href="/mood/">心情记录</a></li>
+            
+                <li><a href="/guestbook/">留言板</a></li>
+            
+        </ul>
+    </div>
+</header>
+        <main>
+            
+    <article class="single-post">
+        <h1>Hugo 入门指南</h1>
+        <div class="post-meta">
+            <span>2026-05-10</span>
+        </div>
+        
+            <div class="featured-image">
+                <img src="https://picsum.photos/800/600?random=2" alt="Hugo 入门指南">
+            </div>
+        
+        <div class="post-body">
+            <p>Hugo 是一个快速的静态网站生成器，非常适合构建个人博客。</p>
+<h2 id="什么是-hugo">什么是 Hugo</h2>
+<p>Hugo 是用 Go 语言编写的静态站点生成器，具有以下特点：</p>
+<ul>
+<li>构建速度极快</li>
+<li>简单易用</li>
+<li>支持多种主题</li>
+<li>丰富的模板系统</li>
+</ul>
+<h2 id="安装-hugo">安装 Hugo</h2>
+<p>你可以从 Hugo 官方网站下载适合你系统的版本，安装非常简单。</p>
+<h2 id="创建新站点">创建新站点</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site myblog
+</span></span><span style="display:flex;"><span>cd myblog
+</span></span></code></pre></div><p>这样就创建了一个新的 Hugo 站点！</p>
+        </div>
+    </article>
+
+        </main>
+        <footer class="footer">
+    <div class="footer-card">
+        <div class="footer-links">
+            <a href="/">首页</a>
+            <span class="divider">|</span>
+            <a href="/about/">个人介绍</a>
+            <span class="divider">|</span>
+            <a href="/works/">我的作品</a>
+            <span class="divider">|</span>
+            <a href="/mood/">心情记录</a>
+            <span class="divider">|</span>
+            <a href="/guestbook/">留言板</a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2026 梁强欢. All rights reserved.</p>
+            <p>基于 Hugo 构建 | 托管于 GitHub Pages</p>
+        </div>
+    </div>
+</footer>
+    </div>
+    <div class="search-modal" id="search-modal">
+    <div class="search-modal-content">
+        <button class="close-btn" id="close-search">
+            <i class="fas fa-times"></i>
+        </button>
+        <input type="text" id="search-input" placeholder="搜索文章...">
+        <div class="search-results" id="search-results"></div>
+    </div>
+</div>
+    <script src="/js/search.js?v=1.4"></script>
+</body>
+</html>

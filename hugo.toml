@@ -1,4 +1,4 @@
-baseURL = "https://r97945x.github.io/"
+baseURL = "https://r97945x-github-io.vercel.app/"
 locale = 'zh-CN'
 title = '个人博客'
 theme = 'ink-theme'

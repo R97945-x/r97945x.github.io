@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>个人博客</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on 个人博客</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 12 May 2026 17:08:18 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第一篇文章</title>
+      <link>http://localhost:1313/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Tue, 12 May 2026 17:08:18 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
+      <description>&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;&#xA;&lt;p&gt;这是我的第一篇博客文章。在这里，我将分享我的学习心得和技术笔记。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我的在线商城系统开发日志</title>
+      <link>http://localhost:1313/posts/%E5%9C%A8%E7%BA%BF%E5%95%86%E5%9F%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Mon, 11 May 2026 10:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E5%9C%A8%E7%BA%BF%E5%95%86%E5%9F%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</guid>
+      <description>&lt;h2 id=&#34;项目背景&#34;&gt;项目背景&lt;/h2&gt;&#xA;&lt;p&gt;作为计算机专业的学生，我一直想做一个完整的全栈项目来巩固所学知识。在线商城系统是一个非常经典的项目，涵盖了用户管理、商品管理、购物车、订单等多个核心模块，可以很好地锻炼前后端开发能力。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hugo 入门指南</title>
+      <link>http://localhost:1313/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Sun, 10 May 2026 10:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
+      <description>&lt;p&gt;Hugo 是一个快速的静态网站生成器，非常适合构建个人博客。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spring Boot 学习笔记：从入门到实战</title>
+      <link>http://localhost:1313/posts/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 09 May 2026 14:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;&#xA;&lt;p&gt;Spring Boot 是目前最流行的 Java Web 开发框架之一，它简化了 Spring 应用的创建和部署过程。在学习过程中，我整理了一些关键知识点，希望能帮助其他初学者。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vue 3 实战指南：Composition API 深度解析</title>
+      <link>http://localhost:1313/posts/vue3%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 08 May 2026 09:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/vue3%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;&#xA;&lt;p&gt;Vue 3 引入了全新的 Composition API，相比 Options API，它提供了更好的代码组织和逻辑复用能力。在这篇文章中，我将分享我在项目中使用 Composition API 的经验和心得。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>个人介绍</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;&#xA;&lt;p&gt;大家好，我是梁强欢，一名计算机专业的学生。&lt;/p&gt;&#xA;&lt;h2 id=&#34;教育背景&#34;&gt;教育背景&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;专科&lt;/strong&gt;：广西质量工程职业技术学院 - 计算机应用专业（2023-2026）&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;高中&lt;/strong&gt;：大寺中学&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;专业技能&#34;&gt;专业技能&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;编程语言：Java、Python、JavaScript、C++&lt;/li&gt;&#xA;&lt;li&gt;前端技术：HTML、CSS、Vue.js、React&lt;/li&gt;&#xA;&lt;li&gt;后端技术：Spring Boot、Node.js&lt;/li&gt;&#xA;&lt;li&gt;数据库：MySQL、MongoDB&lt;/li&gt;&#xA;&lt;li&gt;其他：Git、Docker、Linux&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;兴趣爱好&#34;&gt;兴趣爱好&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;阅读技术博客和开源项目&lt;/li&gt;&#xA;&lt;li&gt;编程和算法学习&lt;/li&gt;&#xA;&lt;li&gt;摄影和旅行&lt;/li&gt;&#xA;&lt;li&gt;音乐和电影&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;励志语录&#34;&gt;励志语录&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;路漫漫其修远兮，吾将上下而求索。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;——屈原&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;成功不是将来才有的，而是从决定去做的那一刻起，持续累积而成。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;——俞敏洪&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;只有那些敢于相信自己内心深处有比现实更强大力量的人，才能改变世界。&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;——乔布斯&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;励志视频&#34;&gt;励志视频&lt;/h2&gt;&#xA;&lt;p&gt;下面是一段我很喜欢的励志视频，送给正在努力的你和我自己：&lt;/p&gt;&#xA;&lt;iframe src=&#34;//player.bilibili.com/player.html?bvid=BV1qtbVeAEbn&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; style=&#34;width: 100%; height: 400px; max-width: 800px; display: block; margin: 0 auto;&#34;&gt;&lt;/iframe&gt;&#xA;&lt;h2 id=&#34;联系方式&#34;&gt;联系方式&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;邮箱：3247160953@qq.com&lt;/li&gt;&#xA;&lt;li&gt;GitHub：https://github.com/yourusername&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>心情记录</title>
+      <link>http://localhost:1313/mood/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mood/</guid>
+      <description>&lt;h2 id=&#34;记录今日心情&#34;&gt;记录今日心情&lt;/h2&gt;&#xA;&lt;div class=&#34;mood-form&#34;&gt;&#xA;    &lt;form id=&#34;mood-form&#34;&gt;&#xA;        &lt;div class=&#34;emoji-picker&#34;&gt;&#xA;            &lt;span class=&#34;emoji-label&#34;&gt;选择心情：&lt;/span&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;😊&#34;&gt;😊&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;😄&#34;&gt;😄&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;🥰&#34;&gt;🥰&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;😎&#34;&gt;😎&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;🤔&#34;&gt;🤔&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;😢&#34;&gt;😢&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;😤&#34;&gt;😤&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;🤪&#34;&gt;🤪&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;💪&#34;&gt;💪&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;☕&#34;&gt;☕&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;💻&#34;&gt;💻&lt;/button&gt;&#xA;            &lt;button type=&#34;button&#34; class=&#34;emoji-btn&#34; data-emoji=&#34;🎓&#34;&gt;🎓&lt;/button&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;input type=&#34;hidden&#34; id=&#34;selected-emoji&#34; name=&#34;emoji&#34; value=&#34;😊&#34;&gt;&#xA;        &lt;textarea id=&#34;mood-content&#34; placeholder=&#34;写下今天的心情...&#34; required&gt;&lt;/textarea&gt;&#xA;        &lt;button type=&#34;submit&#34;&gt;记录心情&lt;/button&gt;&#xA;    &lt;/form&gt;&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;心情日记&#34;&gt;心情日记&lt;/h2&gt;&#xA;&lt;div id=&#34;mood-entries&#34;&gt;&#xA;    &lt;div class=&#34;mood-entry&#34;&gt;&#xA;        &lt;span class=&#34;mood-emoji&#34;&gt;😊&lt;/span&gt;&#xA;        &lt;span class=&#34;mood-date&#34;&gt;2026-01-15&lt;/span&gt;&#xA;        &lt;p&gt;今天完成了毕业设计的初稿，感觉很有成就感！&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;mood-entry&amp;quot;&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-emoji&amp;quot;&amp;gt;☕&amp;lt;/span&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-date&amp;quot;&amp;gt;2025-04-14&amp;lt;/span&amp;gt;&#xA;    &amp;lt;p&amp;gt;在图书馆学习了一天，效率很高。晚上和室友一起吃了火锅。&amp;lt;/p&amp;gt;&#xA;&amp;lt;/div&amp;gt;&#xA;&#xA;&amp;lt;div class=&amp;quot;mood-entry&amp;quot;&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-emoji&amp;quot;&amp;gt;💻&amp;lt;/span&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-date&amp;quot;&amp;gt;2023-11-13&amp;lt;/span&amp;gt;&#xA;    &amp;lt;p&amp;gt;调试了一整天的代码，终于解决了一个棘手的bug。&amp;lt;/p&amp;gt;&#xA;&amp;lt;/div&amp;gt;&#xA;&#xA;&amp;lt;div class=&amp;quot;mood-entry&amp;quot;&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-emoji&amp;quot;&amp;gt;🎓&amp;lt;/span&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-date&amp;quot;&amp;gt;2023-09-01&amp;lt;/span&amp;gt;&#xA;    &amp;lt;p&amp;gt;参加了学院的学术讲座，收获满满。&amp;lt;/p&amp;gt;&#xA;&amp;lt;/div&amp;gt;&#xA;&#xA;&amp;lt;div class=&amp;quot;mood-entry&amp;quot;&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-emoji&amp;quot;&amp;gt;🌧️&amp;lt;/span&amp;gt;&#xA;    &amp;lt;span class=&amp;quot;mood-date&amp;quot;&amp;gt;2023-09-21&amp;lt;/span&amp;gt;&#xA;    &amp;lt;p&amp;gt;下雨天适合宅在宿舍看书，今天读了一本很有意思的技术书籍。&amp;lt;/p&amp;gt;&#xA;&amp;lt;/div&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>我的作品</title>
+      <link>http://localhost:1313/works/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/works/</guid>
+      <description>&lt;h2 id=&#34;项目展示&#34;&gt;项目展示&lt;/h2&gt;&#xA;&lt;h3 id=&#34;项目一在线商城系统&#34;&gt;项目一：在线商城系统&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：Java Spring Boot + Vue.js + MySQL&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;项目描述&lt;/strong&gt;：一个基于前后端分离架构的在线商城系统，支持商品展示、购物车、订单管理等功能。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;功能特点&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;用户注册登录&lt;/li&gt;&#xA;&lt;li&gt;商品分类浏览&lt;/li&gt;&#xA;&lt;li&gt;购物车管理&lt;/li&gt;&#xA;&lt;li&gt;订单生成与支付&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;源代码&lt;/strong&gt;：&lt;a href=&#34;https://github.com/R97945-x/demo-shop-system.git&#34;&gt;GitHub链接&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;项目二任务管理系统&#34;&gt;项目二：任务管理系统&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：React + Node.js + MongoDB&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;项目描述&lt;/strong&gt;：一个轻量级的任务管理应用，支持任务创建、分类、优先级设置等功能。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;功能特点&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;任务创建与编辑&lt;/li&gt;&#xA;&lt;li&gt;任务分类管理&lt;/li&gt;&#xA;&lt;li&gt;优先级设置&lt;/li&gt;&#xA;&lt;li&gt;任务进度追踪&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;源代码&lt;/strong&gt;：&lt;a href=&#34;https://github.com/R97945-x/task-manager.git&#34;&gt;GitHub链接&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;项目三个人博客系统&#34;&gt;项目三：个人博客系统&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：Hugo + GitHub Pages&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;项目描述&lt;/strong&gt;：基于 Hugo 静态站点生成器构建的个人博客系统。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;功能特点&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;文章发布与管理&lt;/li&gt;&#xA;&lt;li&gt;站内搜索&lt;/li&gt;&#xA;&lt;li&gt;响应式设计&lt;/li&gt;&#xA;&lt;li&gt;水墨风格主题&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;源代码&lt;/strong&gt;：&lt;a href=&#34;https://github.com/R97945-x/liang-project.git&#34;&gt;GitHub链接&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>留言板</title>
+      <link>http://localhost:1313/guestbook/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/guestbook/</guid>
+      <description>&lt;h2 id=&#34;留言板&#34;&gt;留言板&lt;/h2&gt;&#xA;&lt;p&gt;欢迎留下你的足迹！&lt;/p&gt;&#xA;&lt;form id=&#34;guestbook-form&#34; class=&#34;guestbook-form&#34;&gt;&#xA;    &lt;input type=&#34;text&#34; id=&#34;name&#34; placeholder=&#34;你的名字&#34; required&gt;&#xA;    &lt;input type=&#34;email&#34; id=&#34;email&#34; placeholder=&#34;你的邮箱&#34; required&gt;&#xA;    &lt;textarea id=&#34;message&#34; placeholder=&#34;写下你想说的话...&#34; required&gt;&lt;/textarea&gt;&#xA;    &lt;button type=&#34;submit&#34;&gt;提交留言&lt;/button&gt;&#xA;&lt;/form&gt;&#xA;&lt;h2 id=&#34;留言列表&#34;&gt;留言列表&lt;/h2&gt;&#xA;&lt;div id=&#34;guestbook-entries&#34;&gt;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

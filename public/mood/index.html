@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心情记录 - 个人博客</title>
+    <meta name="description" content="个人技术博客">
+    <link rel="stylesheet" href="/css/style.css?v=2.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="http://localhost:1313/">个人博客</a>
+        </div>
+        <ul class="nav-links">
+            
+                <li><a href="/" class="">首页</a></li>
+            
+                <li><a href="/about/" class="">个人介绍</a></li>
+            
+                <li><a href="/works/" class="">我的作品</a></li>
+            
+                <li><a href="/mood/" class="">心情记录</a></li>
+            
+                <li><a href="/guestbook/" class="">留言板</a></li>
+            
+        </ul>
+        <button class="search-btn" id="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            
+                <li><a href="/">首页</a></li>
+            
+                <li><a href="/about/">个人介绍</a></li>
+            
+                <li><a href="/works/">我的作品</a></li>
+            
+                <li><a href="/mood/">心情记录</a></li>
+            
+                <li><a href="/guestbook/">留言板</a></li>
+            
+        </ul>
+    </div>
+</header>
+        <main>
+            
+    <article class="single-post">
+        <h1>心情记录</h1>
+        <div class="post-meta">
+            <span>2024-01-01</span>
+        </div>
+        
+        <div class="post-body">
+            <h2 id="记录今日心情">记录今日心情</h2>
+<div class="mood-form">
+    <form id="mood-form">
+        <div class="emoji-picker">
+            <span class="emoji-label">选择心情：</span>
+            <button type="button" class="emoji-btn" data-emoji="😊">😊</button>
+            <button type="button" class="emoji-btn" data-emoji="😄">😄</button>
+            <button type="button" class="emoji-btn" data-emoji="🥰">🥰</button>
+            <button type="button" class="emoji-btn" data-emoji="😎">😎</button>
+            <button type="button" class="emoji-btn" data-emoji="🤔">🤔</button>
+            <button type="button" class="emoji-btn" data-emoji="😢">😢</button>
+            <button type="button" class="emoji-btn" data-emoji="😤">😤</button>
+            <button type="button" class="emoji-btn" data-emoji="🤪">🤪</button>
+            <button type="button" class="emoji-btn" data-emoji="💪">💪</button>
+            <button type="button" class="emoji-btn" data-emoji="☕">☕</button>
+            <button type="button" class="emoji-btn" data-emoji="💻">💻</button>
+            <button type="button" class="emoji-btn" data-emoji="🎓">🎓</button>
+        </div>
+        <input type="hidden" id="selected-emoji" name="emoji" value="😊">
+        <textarea id="mood-content" placeholder="写下今天的心情..." required></textarea>
+        <button type="submit">记录心情</button>
+    </form>
+</div>
+<h2 id="心情日记">心情日记</h2>
+<div id="mood-entries">
+    <div class="mood-entry">
+        <span class="mood-emoji">😊</span>
+        <span class="mood-date">2026-01-15</span>
+        <p>今天完成了毕业设计的初稿，感觉很有成就感！</p>
+    </div>
+<pre><code>&lt;div class=&quot;mood-entry&quot;&gt;
+    &lt;span class=&quot;mood-emoji&quot;&gt;☕&lt;/span&gt;
+    &lt;span class=&quot;mood-date&quot;&gt;2025-04-14&lt;/span&gt;
+    &lt;p&gt;在图书馆学习了一天，效率很高。晚上和室友一起吃了火锅。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;mood-entry&quot;&gt;
+    &lt;span class=&quot;mood-emoji&quot;&gt;💻&lt;/span&gt;
+    &lt;span class=&quot;mood-date&quot;&gt;2023-11-13&lt;/span&gt;
+    &lt;p&gt;调试了一整天的代码，终于解决了一个棘手的bug。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;mood-entry&quot;&gt;
+    &lt;span class=&quot;mood-emoji&quot;&gt;🎓&lt;/span&gt;
+    &lt;span class=&quot;mood-date&quot;&gt;2023-09-01&lt;/span&gt;
+    &lt;p&gt;参加了学院的学术讲座，收获满满。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;mood-entry&quot;&gt;
+    &lt;span class=&quot;mood-emoji&quot;&gt;🌧️&lt;/span&gt;
+    &lt;span class=&quot;mood-date&quot;&gt;2023-09-21&lt;/span&gt;
+    &lt;p&gt;下雨天适合宅在宿舍看书，今天读了一本很有意思的技术书籍。&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+        </div>
+    </article>
+
+        </main>
+        <footer class="footer">
+    <div class="footer-card">
+        <div class="footer-links">
+            <a href="/">首页</a>
+            <span class="divider">|</span>
+            <a href="/about/">个人介绍</a>
+            <span class="divider">|</span>
+            <a href="/works/">我的作品</a>
+            <span class="divider">|</span>
+            <a href="/mood/">心情记录</a>
+            <span class="divider">|</span>
+            <a href="/guestbook/">留言板</a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2026 梁强欢. All rights reserved.</p>
+            <p>基于 Hugo 构建 | 托管于 GitHub Pages</p>
+        </div>
+    </div>
+</footer>
+    </div>
+    <div class="search-modal" id="search-modal">
+    <div class="search-modal-content">
+        <button class="close-btn" id="close-search">
+            <i class="fas fa-times"></i>
+        </button>
+        <input type="text" id="search-input" placeholder="搜索文章...">
+        <div class="search-results" id="search-results"></div>
+    </div>
+</div>
+    <script src="/js/search.js?v=1.4"></script>
+</body>
+</html>
